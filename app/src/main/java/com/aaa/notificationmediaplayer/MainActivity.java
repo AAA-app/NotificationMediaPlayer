@@ -75,10 +75,10 @@ public class MainActivity extends AppCompatActivity implements Playable {
     private void popluateTracks(){
         tracks = new ArrayList<>();
 
-        tracks.add(new Track("Track 1", "Artist 1", R.drawable.girls3));
-        tracks.add(new Track("Track 2", "Artist 2", R.drawable.girls4));
-        tracks.add(new Track("Track 3", "Artist 3", R.drawable.girls6));
-        tracks.add(new Track("Track 4", "Artist 4", R.drawable.girls7));
+        tracks.add(new Track("Track 1", "Artist 1", R.drawable.music6));
+        tracks.add(new Track("Track 2", "Artist 2", R.drawable.music7));
+        tracks.add(new Track("Track 3", "Artist 3", R.drawable.galactic));
+        tracks.add(new Track("Track 4", "Artist 4", R.drawable.foreground));
     }
 
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements Playable {
 
         position--;
         CreateNotification.createNotification(MainActivity.this, tracks.get(position),
-                R.drawable.ic_pause, position, tracks.size()-1);
+                R.drawable.ic_skip_pause, position, tracks.size()-1);
         title.setText(tracks.get(position).getTitle());
 
     }
@@ -118,8 +118,8 @@ public class MainActivity extends AppCompatActivity implements Playable {
     public void onTrackPlay() {
 
         CreateNotification.createNotification(MainActivity.this, tracks.get(position),
-                R.drawable.ic_pause, position, tracks.size()-1);
-        play.setImageResource(R.drawable.ic_pause);
+                R.drawable.ic_skip_pause, position, tracks.size()-1);
+        play.setImageResource(R.drawable.ic_skip_pause);
         title.setText(tracks.get(position).getTitle());
         isPlaying = true;
 
@@ -129,8 +129,9 @@ public class MainActivity extends AppCompatActivity implements Playable {
     public void onTrackPause() {
 
         CreateNotification.createNotification(MainActivity.this, tracks.get(position),
-                R.drawable.ic_play, position, tracks.size()-1);
-        play.setImageResource(R.drawable.ic_play);
+                R.drawable.ic_skip_play, position, tracks.size()-1);
+        play.setImageResource(R.drawable.ic_skip_play);
+        play.getScaleType();
         title.setText(tracks.get(position).getTitle());
         isPlaying = false;
 
@@ -141,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements Playable {
 
         position++;
         CreateNotification.createNotification(MainActivity.this, tracks.get(position),
-                R.drawable.ic_pause, position, tracks.size()-1);
+                R.drawable.ic_skip_pause, position, tracks.size()-1);
         title.setText(tracks.get(position).getTitle());
 
     }
